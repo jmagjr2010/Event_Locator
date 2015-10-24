@@ -44,11 +44,13 @@ Ext.define('Event_Locator.view.main.Main', {
     //     }
     // },
     items: [{
-        xtype: 'label',
-        text: 'Event Locator',
-        shrinkWrap: true,
+        xtype: 'image',
+        src: '/resources/images/Event_Locator_Logo.png',
         cls: 'app-logo',
-        margin: '30 0 30 0'
+        alt: 'Logo for website',
+        margin: '30 0 30 0',
+        width: 800,
+        height: 129
     }, {
         xtype: 'fieldcontainer',
         layout: {

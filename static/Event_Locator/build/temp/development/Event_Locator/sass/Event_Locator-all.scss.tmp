@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'Event_Locator' );
-$image-search-path: '/Users/Jorge/Documents/CS480 Project/static/Event_Locator/build/development/Event_Locator/classic/resources';
+$image-search-path: 'C:/Users/jdogg/Documents/GitHub/Event_Locator/static/Event_Locator/build/development/Event_Locator/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-event_locator-application: dynamic(true);;
 $include-event_locator-store-personnel: dynamic(true);;

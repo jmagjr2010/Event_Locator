@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Users/Jorge/Documents/CS480 Project/static/Event_Locator/app.js
+// @require C:\Users\jdogg\Documents\GitHub\Event_Locator\static\Event_Locator\app.js
