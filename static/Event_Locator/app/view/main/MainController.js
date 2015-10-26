@@ -17,5 +17,38 @@ Ext.define('Event_Locator.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
+    },
+
+    onSearch: function (btn, e) {
+        if (!btn.window) {
+            btn.window = Ext.create({
+                xtype: 'window',
+                width: '100%',
+                height: '100%',
+                header: false,
+                animateTarget: btn,
+                items: [{
+                    xtype: 'mainlist',
+                    // hidden: true,
+                }]
+            });
+        }
+        var animate = {
+            duration: 500,
+            to: {
+                width: 1000,
+                opacity: 1
+            },
+            from: {
+                width: 0,
+                opacity: 0
+            }
+        };
+
+        btn.window.showAt(0, btn.getY() + 32, animate);
+    },
+
+    logOutOfPage: function (btn, e) {
+        window.location.assign('/index.html');
     }
 });

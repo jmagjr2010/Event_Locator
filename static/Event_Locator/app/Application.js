@@ -9,7 +9,11 @@ Ext.define('Event_Locator.Application', {
     name: 'Event_Locator',
 
     stores: [
-        // TODO: add global / shared stores here
+        // 'Event_Locator.store.Personnel.js'
+    ],
+
+    views: [
+        // 'Event_Locator.view.search.SearchGrid'
     ],
     
     launch: function () {

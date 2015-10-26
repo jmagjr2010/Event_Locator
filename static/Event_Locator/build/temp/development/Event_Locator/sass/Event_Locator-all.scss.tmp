@@ -1329,11 +1329,3 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/tree/View';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
-
-/* including package Event_Locator */
-$Event_Locator-resource-root: '' !default;
-$Event_Locator-resource-path: 'images' !default;
-$current-package: false;
-$current-resource-root: $Event_Locator-resource-root;
-$relative-image-path-for-uis: $Event_Locator-resource-path;
-@import '../../../../../classic/sass/src/view/main/Main';

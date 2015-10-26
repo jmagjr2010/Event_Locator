@@ -15,7 +15,8 @@ Ext.define('Event_Locator.view.main.Main', {
 
         'Event_Locator.view.main.MainController',
         'Event_Locator.view.main.MainModel',
-        'Event_Locator.view.main.List'
+        'Event_Locator.view.main.List',
+        // 'Event_Locator.view.search.SearchGrid'
     ],
 
     controller: 'main',
@@ -32,8 +33,25 @@ Ext.define('Event_Locator.view.main.Main', {
     layout: {
         type: 'vbox',
         align: 'center',
-        pack: 'middle',
+        // pack: 'middle',
     },
+
+    dockedItems: [{
+        xtype: 'toolbar',
+        cls: 'top-toolbar',
+        dock: 'top',
+        items: ['->',{
+            text: "User: Admin",
+            cls: 'user-button',
+            menu: [{
+                cls: 'menu-user-button',
+                text: 'logout',
+                listeners: {
+                    click: 'logOutOfPage'
+                }
+            }]
+        }]
+    }],
 
     // responsiveConfig: {
     //     tall: {
@@ -48,7 +66,7 @@ Ext.define('Event_Locator.view.main.Main', {
         src: '/resources/images/Event_Locator_Logo.png',
         cls: 'app-logo',
         alt: 'Logo for website',
-        margin: '30 0 30 0',
+        margin: '240 0 30 0',
         width: 800,
         height: 129
     }, {
@@ -60,8 +78,12 @@ Ext.define('Event_Locator.view.main.Main', {
         items: [{
             xtype: 'button',
             text: 'Search',
+            name: 'search',
             width: 90,
-            height: 32
+            height: 32,
+            listeners: {
+                click: 'onSearch'
+            }
         }, {
             xtype: 'textfield',
             width: 500,

@@ -5,5 +5,5 @@
  * to the most recently built CSS file for the application to allow index.html
  * in the development directory to load properly (i.e., "dev mode").
  */
-@import 'build/development/Event_Locator/classic/resources/Event_Locator-all.css';
+@import 'build/production/Event_Locator/classic/resources/Event_Locator-all.css';
 
