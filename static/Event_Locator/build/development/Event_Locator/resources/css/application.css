@@ -12,3 +12,37 @@
 	font-weight: bold;
 	font-family: times;
 }
+
+.top-toolbar {
+	background: linear-gradient(#5fa2dd, #477AA6) !important;
+	border-color: #5897CE !important;
+}
+
+.user-button {
+	border-radius: 10px !important;
+	/*background-color: #477AA6 !important;*/
+	border-color: #343434 !important;
+}
+
+.user-button span {
+	color: #E2AB02 !important;
+}
+
+.menu-user-button {
+	background-color: white;
+	transition: background-color 0.5s;
+}
+
+.x-menu-body-default {
+	background: transparent !important;
+	border: 1px solid transparent !important;
+}
+
+.x-menu-default {
+	border-radius: 10px !important;
+
+}
+
+.search-button: {
+	border: 1px solid #565656 !important;
+}

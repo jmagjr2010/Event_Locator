@@ -9,15 +9,20 @@ Ext.define('Event_Locator.Application', {
     name: 'Event_Locator',
 
     stores: [
-        // 'Event_Locator.store.Personnel.js'
+        'Event_Locator.store.Events'
     ],
 
     views: [
-        // 'Event_Locator.view.search.SearchGrid'
+        'Event_Locator.view.search.SearchGrid'
     ],
     
     launch: function () {
         // TODO - Launch the application
+        Parse.initialize("yfu0Rc9ON0WmTPczXt82CLnqsrtVIDVctnUGAgkI", "rC0NI3RC7OZaztXGnStQrv7plIiuOE35tELXHiwM");
+        console.log('parse initialized');
+
+        // Ext.enableAriaButtons = false;
+        // Ext.enableAriaPanels = false;
     },
 
     onAppUpdate: function () {

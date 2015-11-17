@@ -12,28 +12,24 @@ Ext.define('Event_Locator.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
+        'Ext.form.field.Date',
+        'Ext.form.field.Text',
+        'Ext.layout.container.VBox',
+        'Ext.Img',
 
         'Event_Locator.view.main.MainController',
         'Event_Locator.view.main.MainModel',
-        'Event_Locator.view.main.List',
-        // 'Event_Locator.view.search.SearchGrid'
+        'Event_Locator.view.search.SearchGrid',
     ],
 
     controller: 'main',
     viewModel: 'main',
     bodyCls: 'main-body',
 
-    // ui: 'navigation',
-
-    // tabBarHeaderPosition: 1,
-    // titleRotation: 0,
-    // tabRotation: 0,
-
     header: false,
     layout: {
         type: 'vbox',
         align: 'center',
-        // pack: 'middle',
     },
 
     dockedItems: [{
@@ -66,19 +62,21 @@ Ext.define('Event_Locator.view.main.Main', {
         src: '/resources/images/Event_Locator_Logo.png',
         cls: 'app-logo',
         alt: 'Logo for website',
-        margin: '240 0 30 0',
+        margin: '180 0 30 0',
         width: 800,
         height: 129
     }, {
         xtype: 'fieldcontainer',
         layout: {
             type: 'hbox',
-            pack: 'middle'
+            pack: 'middle',
+            align: 'end',
         },
         items: [{
             xtype: 'button',
             text: 'Search',
-            name: 'search',
+            action: 'search',
+            cls: 'search-button',
             width: 90,
             height: 32,
             listeners: {
@@ -86,9 +84,25 @@ Ext.define('Event_Locator.view.main.Main', {
             }
         }, {
             xtype: 'textfield',
-            width: 500,
-            emptyText: 'Location, Distance, Data'
+            labelAlign: 'top',
+            fieldLabel: 'Location',
+            name: 'location',
+            margin: '0 20 0 20',
+            width: 300,
+            labelStyle: 'color: white; font-size: 1.2em;',
+            // emptyText: 'Location, Distance, Data'
             // height: 40
+        }, {
+            xtype: 'datefield',
+            labelAlign: 'top',
+            name: 'start_date',
+            fieldLabel: 'Start Date',
+            format: 'Y-m-d',
+            width: 200,
+            labelStyle: 'color: white; font-size: 1.2em;'
         }]
+    }, {
+        xtype: 'searchgrid',
+        hidden: true
     }]
 });
