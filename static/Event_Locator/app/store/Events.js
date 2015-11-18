@@ -4,7 +4,7 @@ Ext.define('Event_Locator.store.Events', {
     alias: 'store.events',
 
     fields: [
-        'name', 'url', 'start_date', 'description'
+        'logo', 'name', 'url', 'start_date', 'end_date', 'location', 'description'
     ],
 
     proxy: {

@@ -46,3 +46,117 @@
 .search-button: {
 	border: 1px solid #565656 !important;
 }
+
+/**--View--**/
+
+.search-view {
+	background-color: #323232;
+	border: 2px ridge #585858;
+}
+
+.thumb-wrap {
+	display: inline-block;
+	height: 150px;
+	width: 492px;
+	background-color: #454545;
+	border: 1px solid #111;
+	padding: 10px;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */      
+}
+
+.thumb-wrap-over {
+	background-color: #565656;
+}
+
+.thumb-wrap-selected {
+	background-color: #323232 !important;
+	border: 1px solid transparent !important;
+}
+
+.logo-name-box {
+	width: 200px;
+	padding: 5px;
+	vertical-align: top;
+	display: inline-block;
+	text-align: center;
+}
+
+.event-logo {
+	height: 120px;
+	width: 170px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-bottom: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.event-name {
+	font-size: 0.9em;
+	color: white;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.info-section {
+	display: inline-block;
+	width: 263px;
+}
+
+.event-name-box {
+	text-align: center;
+	height: 50px;
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.info-sub-section {
+	display: block;
+}
+
+.event-label-box {
+	padding: 5px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+
+.event-label {
+	font-size: 1em;
+	color: #ccc;
+	margin-bottom: 8px;
+	vertical-align: middle;
+	display: block;
+}
+
+.event-info-box {
+	padding: 5px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+
+.event-date {
+	font-size: 1em;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 8px;
+	display: block;
+}
+
+.event-locale {
+	font-size: 1em;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 8px;
+	display: block;
+}
+
+.search-view .x-view-item-focused {
+	outline: none !important;
+}

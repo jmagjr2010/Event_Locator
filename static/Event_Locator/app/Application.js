@@ -13,7 +13,8 @@ Ext.define('Event_Locator.Application', {
     ],
 
     views: [
-        'Event_Locator.view.search.SearchGrid'
+        'Event_Locator.view.search.SearchGrid',
+        'Event_Locator.view.search.SearchView'
     ],
     
     launch: function () {

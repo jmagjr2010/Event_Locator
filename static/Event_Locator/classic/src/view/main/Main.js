@@ -86,6 +86,7 @@ Ext.define('Event_Locator.view.main.Main', {
             xtype: 'textfield',
             labelAlign: 'top',
             fieldLabel: 'Location',
+            allowBlank: false,
             name: 'location',
             margin: '0 20 0 20',
             width: 300,
@@ -97,12 +98,13 @@ Ext.define('Event_Locator.view.main.Main', {
             labelAlign: 'top',
             name: 'start_date',
             fieldLabel: 'Start Date',
+            allowblank: false,
             format: 'Y-m-d',
             width: 200,
             labelStyle: 'color: white; font-size: 1.2em;'
         }]
     }, {
-        xtype: 'searchgrid',
+        xtype: 'searchview',
         hidden: true
     }]
 });

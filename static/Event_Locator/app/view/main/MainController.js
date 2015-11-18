@@ -20,34 +20,6 @@ Ext.define('Event_Locator.view.main.MainController', {
     },
 
     onSearch: function (btn, e) {
-        // if (!btn.window) {
-        //     btn.window = Ext.create({
-        //         xtype: 'window',
-        //         width: '100%',
-        //         height: '100%',
-        //         header: false,
-        //         animateTarget: btn,
-        //         items: [{
-        //             xtype: 'mainlist',
-        //             // hidden: true,
-        //         }]
-        //     });
-        // }
-        // var animate = {
-        //     duration: 500,
-        //     to: {
-        //         width: 1000,
-        //         opacity: 1
-        //     },
-        //     from: {
-        //         width: 0,
-        //         opacity: 0
-        //     }
-        // };
-
-        // btn.window.showAt(0, btn.getY() + 32, animate);
-
-        // console.log('here');
         // var TestObject = Parse.Object.extend("TestObject");
         // var testObject = new TestObject();
         // testObject.save({foo: "bar"}).then(function(object) {
@@ -61,10 +33,18 @@ Ext.define('Event_Locator.view.main.MainController', {
         //     error: function(error) {
         //     }
         // });
-        var location = this.getView().down('textfield[name=location]').getValue();
-        var date     = this.getView().down('datefield[name=start_date]').getValue().toJSON().substring(0,19);
+        var localeField = this.getView().down('textfield[name=location]');
+        var dateField   = this.getView().down('textfield[name=start_date]');
+        var location    = localeField.getValue();
+        var date        = dateField.getValue();
+
+        if (!localeField.isValid() || !dateField.isValid())
+            return false;
+
         console.log(date);
         console.log(location);
+        date.toJSON().substring(0,19);
+        
         var params = {
             'location':location,
             'start_date':date
@@ -80,8 +60,29 @@ Ext.define('Event_Locator.view.main.MainController', {
                 jsonObject = JSON.parse(eventData);
                 console.log(jsonObject);
                 Ext.each(jsonObject.events, function(eventObj, index, events) {
-                    var date = new Date(eventObj.start.utc).toLocaleString();
-                    var newObj = {'name': eventObj.name.html, 'url': eventObj.url, 'start_date': date, 'description': eventObj.description.html}
+                    var startDate = new Date(eventObj.start.utc).toLocaleString();
+                    var endDate   = new Date(eventObj.end.utc).toLocaleString();
+                    var logoURL;
+
+                    if (typeof eventObj.start.utc != 'string')
+                        startDate = "N/A";
+                    if (typeof eventObj.end.utc != 'string')
+                        endDate = "N/A";
+
+                    if (eventObj.logo == null)
+                        logoURL = "http://vignette4.wikia.nocookie.net/supahninjas/images/f/fd/800px-No_Image_Wide.png/revision/latest?cb=20130801184125";
+                    else
+                        logoURL = eventObj.logo.url;
+
+                    var newObj = {
+                        'logo': logoURL,
+                        'name': eventObj.name.html,
+                        'url': eventObj.url,
+                        'start_date': startDate,
+                        'end_date': endDate,
+                        'location': jsonObject.location.address,
+                        'description': eventObj.description.html
+                    };
                     EventData.push(newObj);
                 });
 
@@ -89,17 +90,14 @@ Ext.define('Event_Locator.view.main.MainController', {
             },
             error: function(error) {
                 console.log("Error:" + error);
+                Ext.Msg.alert('Error', error);
             }
         });
-
-        // this.getView().down('searchgrid').data = EventData;
-        // this.getView().down('searchgrid').show();
     },
 
     showGrid: function(EventData) {
-        this.getView().down('searchgrid').getStore().setData(EventData);
-        this.getView().down('searchgrid').show();
-        console.log(EventData);
+        this.getView().down('searchview').getStore().setData(EventData);
+        this.getView().down('searchview').show();
     },
 
     logOutOfPage: function (btn, e) {
