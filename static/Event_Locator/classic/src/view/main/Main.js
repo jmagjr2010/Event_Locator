@@ -23,6 +23,7 @@ Ext.define('Event_Locator.view.main.Main', {
     ],
 
     controller: 'main',
+    plugins: 'viewport',
     viewModel: 'main',
     bodyCls: 'main-body',
 

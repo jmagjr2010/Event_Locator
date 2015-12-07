@@ -16,8 +16,7 @@ Ext.application({
     // will gain a "viewport" plugin if it does not extend Ext.Viewport. With the
     // modern toolkit, the main view will be added to the Viewport.
     //
-    mainView: 'Event_Locator.view.main.Main'
-	
+	//mainView: 'Event_Locator.view.main.Main'
     //-------------------------------------------------------------------------
     // Most customizations should be made to Event_Locator.Application. If you need to
     // customize this file, doing so below this section reduces the likelihood
