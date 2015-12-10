@@ -11,16 +11,16 @@ Ext.define('Event_Locator.view.search.SearchView', {
 	header: false,
 	cls: 'search-view',
 	width: '100%',
-	maxWidth: 1500,
-	// minWidth: 800,
-	height: 500,
+	height: '100%',
 	autoScroll: true,
 	itemSelector: 'div.thumb-wrap',
 	trackOver: true,
 	overItemCls: 'thumb-wrap-over',
 	selectedItemCls: 'thumb-wrap-selected',
-	shrinkWrap: 3,
+	// shrinkWrap: 3,
 	border: '3 3 0 3',
+	pageNum: 1,
+	pageCount: 1,
 
 	store: {
 		type: 'events'
@@ -54,6 +54,8 @@ Ext.define('Event_Locator.view.search.SearchView', {
 	],
 
 	listeners: {
-		itemdblclick: 'onItemSelected'
+		itemdblclick: 'onItemSelected',
+		resize: 'resizeView',
+		boxReady: 'resizeView',
 	}
 });

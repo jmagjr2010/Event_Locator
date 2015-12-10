@@ -21,7 +21,7 @@
 .user-button {
 	border-radius: 10px !important;
 	/*background-color: #477AA6 !important;*/
-	border-color: #343434 !important;
+	border: 0px solid #343434 !important;
 }
 
 .user-button span {
@@ -43,8 +43,12 @@
 
 }
 
-.search-button: {
-	border: 1px solid #565656 !important;
+.search-button {
+	/*border-radius: 30px !important;*/
+}
+
+.main-body .x-panel-body-default {
+	background: #454545;
 }
 
 /**--View--**/
@@ -159,4 +163,24 @@
 
 .search-view .x-view-item-focused {
 	outline: none !important;
+}
+
+.view-toolbar {
+	background: linear-gradient(#323232, #282828) !important;
+}
+
+.x-panel-body-default {
+	background: #565656;
+}
+
+.search-view-button {
+	border-radius: 10px !important;
+}
+
+.search-view-button span {
+	color: #538EC1 !important;
+}
+
+.page-check {
+	color: #ddd;
 }

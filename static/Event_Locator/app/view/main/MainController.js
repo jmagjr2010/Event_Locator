@@ -35,19 +35,37 @@ Ext.define('Event_Locator.view.main.MainController', {
         // });
         var localeField = this.getView().down('textfield[name=location]');
         var dateField   = this.getView().down('textfield[name=start_date]');
+        var end_date    = this.getView().down('textfield[name=end_date]');
+        var radius      = this.getView().down('textfield[name=radius]');
         var location    = localeField.getValue();
         var date        = dateField.getValue();
+        var end         = end_date.getValue();
+        var within      = radius.getValue().concat('mi');
+        var view        = this.getView().down('panel[name=searchPanel] > searchview');
+
+        if (!localeField.isValid() || !dateField.isValid() || !end_date.isValid() || !radius.isValid()) {
+            return false;
+        }
+
+        if (btn.action != 'change') {
+            view.pageNum = 1;
+        }
+
+        view.up('panel').show();
+        view.mask('loading');
 
         if (!localeField.isValid() || !dateField.isValid())
             return false;
 
-        console.log(date);
-        console.log(location);
-        date.toJSON().substring(0,19);
+        date = date.toISOString().substring(0,16).concat(':00Z');
+        end  = end.toISOString().substring(0,16).concat(':00Z');
         
         var params = {
-            'location':location,
-            'start_date':date
+            'location': location.replace(' ', '_'),
+            'within': within,
+            'startDate': date,
+            'endDate': end,
+            'page': view.pageNum
         };
 
         console.log(params);
@@ -85,7 +103,8 @@ Ext.define('Event_Locator.view.main.MainController', {
                     };
                     EventData.push(newObj);
                 });
-
+                
+                view.pageCount = jsonObject.pagination.page_count;
                 me.showGrid(EventData);
             },
             error: function(error) {
@@ -96,11 +115,64 @@ Ext.define('Event_Locator.view.main.MainController', {
     },
 
     showGrid: function(EventData) {
-        this.getView().down('searchview').getStore().setData(EventData);
-        this.getView().down('searchview').show();
+        this.getView().down('panel[name=searchPanel] > searchview').getStore().setData(EventData);
+        this.setLabel();
+        // this.getView().down('searchview').show();
+        // this.getView().down('searchview').unMask();
     },
 
     logOutOfPage: function (btn, e) {
         window.location.assign('/index.html');
+    },
+
+    layoutView: function(panel, width, height) {
+        if (window.innerWidth < 1008) {
+            panel.setWidth(495);
+        }
+        else if (window.innerWidth < 1500) {
+            panel.setWidth(1008);
+        }
+        else {
+            panel.setWidth(1500);
+        }
+        console.log('resized');
+    },
+
+    resizeView: function(main, width, height) {
+        this.layoutView(main.down('panel[name=searchPanel]'), width, height);
+    },
+
+    nextPage: function(btn, e) {
+        var view = this.getView().down('panel[name=searchPanel] > searchview');
+
+        if (view.pageNum == view.pageCount)
+            return false;
+        else
+            view.pageNum += 1;
+
+        this.setLabel();
+        this.onSearch(btn, e);
+    },
+
+    prevPage: function(btn, e) {
+        var view = this.getView().down('panel[name=searchPanel] > searchview');
+
+        if (view.pageNum == 1)
+            return false;
+        else
+            view.pageNum -= 1;
+
+        this.setLabel();
+        this.onSearch(btn, e);
+    },
+
+    setLabel: function() {
+        var view = this.getView().down('panel[name=searchPanel] > searchview');
+        var label = this.getView().down('toolbar[name=viewTools] > label[action=pageCheck]');
+        var pageNum = view.pageNum;
+        var pageCount = view.pageCount;
+        var text = Ext.String.format('Page {0} of {1}', pageNum, pageCount);
+
+        label.setText(text);
     }
 });

@@ -6,7 +6,6 @@ $include-event_locator-store-events: dynamic(true);;
 $include-event_locator-view-main-main: dynamic(true);;
 $include-event_locator-view-main-maincontroller: dynamic(true);;
 $include-event_locator-view-main-mainmodel: dynamic(true);;
-$include-event_locator-view-search-searchgrid: dynamic(true);;
 $include-event_locator-view-search-searchgridcontroller: dynamic(true);;
 $include-event_locator-view-search-searchview: dynamic(true);;
 $include-ext-abstractcomponent: dynamic(true);;

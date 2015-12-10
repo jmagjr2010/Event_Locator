@@ -21,7 +21,7 @@
 .user-button {
 	border-radius: 10px !important;
 	/*background-color: #477AA6 !important;*/
-	border-color: #343434 !important;
+	border: 0px solid #343434 !important;
 }
 
 .user-button span {
@@ -43,8 +43,12 @@
 
 }
 
-.search-button: {
-	border: 1px solid #565656 !important;
+.search-button {
+	/*border: 1px solid #565656 !important;*/
+}
+
+.search-button-icon {
+
 }
 
 /**--View--**/

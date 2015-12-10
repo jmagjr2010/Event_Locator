@@ -19,7 +19,6 @@ Ext.define('Event_Locator.view.main.Main', {
 
         'Event_Locator.view.main.MainController',
         'Event_Locator.view.main.MainModel',
-        'Event_Locator.view.search.SearchGrid',
     ],
 
     controller: 'main',
@@ -39,6 +38,7 @@ Ext.define('Event_Locator.view.main.Main', {
         items: ['->',{
             text: "User: Admin",
             cls: 'user-button',
+            iconCls: 'fa fa-user',
             menu: [{
                 cls: 'menu-user-button',
                 text: 'logout',
@@ -77,6 +77,7 @@ Ext.define('Event_Locator.view.main.Main', {
             text: 'Search',
             action: 'search',
             cls: 'search-button',
+            iconCls: 'fa fa-search',
             width: 90,
             height: 32,
             listeners: {
@@ -85,26 +86,106 @@ Ext.define('Event_Locator.view.main.Main', {
         }, {
             xtype: 'textfield',
             labelAlign: 'top',
-            fieldLabel: 'Location',
+            fieldLabel: 'City',
             allowBlank: false,
             name: 'location',
             margin: '0 20 0 20',
             width: 300,
             labelStyle: 'color: white; font-size: 1.2em;',
-            // emptyText: 'Location, Distance, Data'
+            emptyText: 'City Name / address/ zip code..',
             // height: 40
+        }, {
+            xtype: 'textfield',
+            labelAlign: 'top',
+            fieldLabel: 'Radius',
+            allowBlank: false,
+            name: 'radius',
+            margin: '0 20 0 5',
+            width: 65,
+            labelStyle: 'color: white; font-size: 1.2em;',
+            emptyText: '0',
+            inputType: 'number'
         }, {
             xtype: 'datefield',
             labelAlign: 'top',
             name: 'start_date',
             fieldLabel: 'Start Date',
-            allowblank: false,
+            emptyText: 'Start Date of Event',
+            margin: '0 20 0 5',
+            allowBlank: false,
+            format: 'Y-m-d',
+            width: 200,
+            labelStyle: 'color: white; font-size: 1.2em;'
+        },{
+            xtype: 'datefield',
+            labelAlign: 'top',
+            name: 'end_date',
+            fieldLabel: 'End Date',
+            emptyText: 'End Date of Event',
+            allowBlank: false,
             format: 'Y-m-d',
             width: 200,
             labelStyle: 'color: white; font-size: 1.2em;'
         }]
     }, {
-        xtype: 'searchview',
-        hidden: true
-    }]
+        xtype: 'panel',
+        name: 'searchPanel',
+        width: '100%',
+        height: 475,
+        header: false,
+        hidden: true,
+        dockedItems: [{
+            xtype: 'toolbar',
+            dock: 'bottom',
+            cls: 'view-toolbar',
+            name: 'viewTools',
+            items: [{
+                xtype: 'button',
+                iconCls: 'fa fa-refresh',
+                text: 'Refresh',
+                action: 'refreshview',
+                cls: 'search-view-button',
+                listeners: {
+                    click: 'onSearch'
+                }
+            }, {
+                xtype: 'tbfill'
+            }, {
+                xtype: 'label',
+                action: 'pageCheck',
+                cls: 'page-check',
+                // listeners: {
+                //     afterrender: 'setLabel'
+                // }
+            }, {
+                xtype: 'button',
+                iconCls: 'fa fa-hand-o-left',
+                text: 'Previous Page',
+                action: 'change',
+                cls: 'search-view-button',
+                listeners: {
+                    click: 'prevPage'
+                }
+            }, {
+                xtype: 'button',
+                iconCls: 'fa fa-hand-o-right',
+                text: 'Next Page',
+                action: 'change',
+                cls: 'search-view-button',
+                listeners: {
+                    click: 'nextPage'
+                }
+            }]
+        }],
+        items: [{
+            xtype: 'searchview'
+        }],
+        listeners: {
+            boxReady: 'layoutView'
+        }
+    }],
+
+    listeners: {
+        resize: 'resizeView'
+    }
 });
