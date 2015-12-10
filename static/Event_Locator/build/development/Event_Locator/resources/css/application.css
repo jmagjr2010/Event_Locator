@@ -6,6 +6,14 @@
 	background-size: cover !important;
 }
 
+.x-css-shadow {
+	box-shadow: rgb(45, 45, 45) 0px 0px 6px !important;
+}
+
+.x-body {
+	background: #282828 !important;
+}
+
 .app-logo {
 	color: #5795CB;
 	font-size: 3em;
@@ -44,11 +52,53 @@
 }
 
 .search-button {
-	/*border: 1px solid #565656 !important;*/
+	/*border-radius: 30px !important;*/
 }
 
-.search-button-icon {
+.main-body .x-panel-body-default {
+	background: #454545;
+}
 
+.login-window.x-window-default {
+	border-color: #454545;
+}
+
+.login-window .x-window-header-title-default {
+	color: #E4AD00;
+}
+
+.login-window .x-window-header-default-top {
+	background-color: #454545;
+}
+
+.login-window .x-window-header-default {
+	border-color: #585858;
+}
+
+.login-window .x-window-body-default {
+	background: #565656;
+}
+
+.login-window .x-panel-body-default {
+	background: #565656;
+}
+
+.login-window .x-toolbar-footer {
+	background-color: #676767;
+}
+
+.login-window .x-form-item-label-default {
+	color: #eee;
+}
+
+.login-window .x-form-display-field-default {
+	color: #ccc;
+}
+
+.login-window .x-btn-default-small {
+	color: #444;
+	background-color: #545454;
+	border-color: #565656;
 }
 
 /**--View--**/
@@ -163,4 +213,24 @@
 
 .search-view .x-view-item-focused {
 	outline: none !important;
+}
+
+.view-toolbar {
+	background: linear-gradient(#323232, #282828) !important;
+}
+
+.x-panel-body-default {
+	background: #565656;
+}
+
+.search-view-button {
+	border-radius: 10px !important;
+}
+
+.search-view-button span {
+	color: #538EC1 !important;
+}
+
+.page-check {
+	color: #ddd;
 }

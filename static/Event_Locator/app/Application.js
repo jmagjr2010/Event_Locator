@@ -13,14 +13,21 @@ Ext.define('Event_Locator.Application', {
     ],
 
     views: [
+        'Event_Locator.view.login.Login',
+        'Event_Locator.view.main.Main',
         'Event_Locator.view.search.SearchView'
     ],
-    
+
     launch: function () {
         // TODO - Launch the application
         Parse.initialize("yfu0Rc9ON0WmTPczXt82CLnqsrtVIDVctnUGAgkI", "rC0NI3RC7OZaztXGnStQrv7plIiuOE35tELXHiwM");
         console.log('parse initialized');
+        var loggedIn = false;
+        loggedIn = localStorage.getItem("UserLoggedIn");
 
+        Ext.create({
+            xtype: loggedIn ? 'app-main' : 'login'
+        });
         // Ext.enableAriaButtons = false;
         // Ext.enableAriaPanels = false;
     },

@@ -19,9 +19,12 @@ Ext.define('Event_Locator.view.main.Main', {
 
         'Event_Locator.view.main.MainController',
         'Event_Locator.view.main.MainModel',
+        'Event_Locator.view.login.Login',
+        'Event_Locator.view.login.LoginController'
     ],
 
     controller: 'main',
+    plugins: 'viewport',
     viewModel: 'main',
     bodyCls: 'main-body',
 
@@ -62,7 +65,7 @@ Ext.define('Event_Locator.view.main.Main', {
         src: '/resources/images/Event_Locator_Logo.png',
         cls: 'app-logo',
         alt: 'Logo for website',
-        margin: '180 0 30 0',
+        margin: '100 0 30 0',
         width: 800,
         height: 129
     }, {

@@ -6,6 +6,14 @@
 	background-size: cover !important;
 }
 
+.x-css-shadow {
+	box-shadow: rgb(45, 45, 45) 0px 0px 6px !important;
+}
+
+.x-body {
+	background: #282828 !important;
+}
+
 .app-logo {
 	color: #5795CB;
 	font-size: 3em;
@@ -49,6 +57,48 @@
 
 .main-body .x-panel-body-default {
 	background: #454545;
+}
+
+.login-window.x-window-default {
+	border-color: #454545;
+}
+
+.login-window .x-window-header-title-default {
+	color: #E4AD00;
+}
+
+.login-window .x-window-header-default-top {
+	background-color: #454545;
+}
+
+.login-window .x-window-header-default {
+	border-color: #585858;
+}
+
+.login-window .x-window-body-default {
+	background: #565656;
+}
+
+.login-window .x-panel-body-default {
+	background: #565656;
+}
+
+.login-window .x-toolbar-footer {
+	background-color: #676767;
+}
+
+.login-window .x-form-item-label-default {
+	color: #eee;
+}
+
+.login-window .x-form-display-field-default {
+	color: #ccc;
+}
+
+.login-window .x-btn-default-small {
+	color: #444;
+	background-color: #545454;
+	border-color: #565656;
 }
 
 /**--View--**/

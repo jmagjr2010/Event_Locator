@@ -19,6 +19,12 @@ Ext.define('Event_Locator.view.main.MainController', {
         }
     },
 
+    logOutOfPage: function() {
+        localStorage.removeItem('UserLoggedIn');
+        this.getView().destroy();
+        Ext.widget('login');
+    },
+
     onSearch: function (btn, e) {
         // var TestObject = Parse.Object.extend("TestObject");
         // var testObject = new TestObject();
@@ -121,13 +127,9 @@ Ext.define('Event_Locator.view.main.MainController', {
         // this.getView().down('searchview').unMask();
     },
 
-    logOutOfPage: function (btn, e) {
-        window.location.assign('/index.html');
-    },
-
     layoutView: function(panel, width, height) {
         if (window.innerWidth < 1008) {
-            panel.setWidth(495);
+            panel.setWidth(515);
         }
         else if (window.innerWidth < 1500) {
             panel.setWidth(1008);
